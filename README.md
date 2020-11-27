@@ -1,26 +1,30 @@
 # passHelper
+Can find any scripts that just get the passwords from data breaches? Then look no further!
+Formating:
+  Convert any ':' to ';' when required  
+  Works with ISO chars 
 
-ATM it's a bare bones script but it works as intended. It will convert any ':' to ';' when required  
-It will only work with single ( raw text) files currently. 
 
-## Why I wrote this script
+## Why?
 Looking around the internet there wasn't any python scripts that would do what I wanted, which was to just get the passwords from leaked databases.
-After looking around the internet for about a week I found that these sort of scripts are no longer being maintained, so why don't I learn some python and make it myself! 
-So begain my journey into python formating and syntax ;_;
+After about a week I found that these sort of scripts are no longer being maintained, so why don't I learn some python and make it myself? Well the answer was because this was a questionable thing at best, hence why nothing is maintained.  
 
 
 ## Usage
 ```
 python3 convert.py
 ```
-It will ask you for an ```input``` file and then an ```output``` file. Be sure to run this as ```sudo``` otherwise you might get some errors. 
+1. Place the python script in the Folder containing all the .txt files. 
+2. It will ask you for an an ```output``` file after filtering. If you are getting errors, be sure to run this as ```sudo```. 
+3. It will automatically find and start to filter each file into a buffer.
 
 ## TODO (Highest to Lowest priority)
-```FIX combiner to work with multiple files
-ADD support for multiple files to be analyzed 
-ADD support for files in a dir to be analyzed 
-ADD support for the combiner to combine multiple files into one file (without breaking)
-Optimize the script for larger files. 
-ADD support for other file formates. csv, zip, tar
-Redo the script to be able to choose which to output. 1) Emails, 2) Passwords
+```
+~~1. FIX combiner to work with multiple files~~
+~~2. ADD support for multiple files to be analyzed~~
+~~3. ADD support for files in a dir to be analyzed~~
+3. ADD support for the combiner to combine multiple files into one file (without breaking) | Maybe
+~~4. Optimize the script for larger files.~~ | Right now its based on CPU and Hard Disk speed
+5. ADD support for other file formates. csv, zip, tar | Maybe if others use it for data aggr
+6. Redo the script to be able to choose which to output. 1) Emails, 2) Passwords | Should be fine for now
 ```
