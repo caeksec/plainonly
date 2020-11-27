@@ -3,6 +3,9 @@ import os
 import glob
 import timeit
 import sys
+import re
+import threading
+import time
 # Sort Data Section
 
 # Timer VAR
@@ -11,7 +14,7 @@ start = timeit.default_timer()
 
 def Temp():
     try:
-         newFile = open("buffer.txt","w+") # Makes buffer for email and password if not already made
+         newFile = open("buffer.log","w+") # Makes buffer for email and password if not already made
     except OSError as error:
         print(error)
         print("Program could not start correctly! Try running with sudo.")
@@ -21,43 +24,46 @@ Temp()
 
 
 def In():
-    inFileUser = input("File to Sort: ")
-    inFile = open(inFileUser,"r+") # Puts the input file into memory
-    outTemp = open("buffer.txt","w+") # Puts the buffer file into memory
-    for line in inFile:
-        print(line.replace(":",";"),file=outTemp,end="") # Moves and filters : into ;      
-    inFile.close() # Closes file		  # Also places into buffer
-    outTemp.close() # Closes file
-    print("Sorted Semi-colons!")
+    with open("buffer.log","w+") as outTemp: # Puts the buffer file into memory
+        for filename in glob.glob('*.txt'): # Locates all .txt files in Current DIR
+            with open(os.path.join(os.getcwd(), filename), 'r', encoding="ISO-8859-1") as f: # open in readonly mode
+                fileSize = os.path.getsize("buffer.log")
+                for line in f:
+                    print(line.replace(":",";"),file=outTemp,end="")
+                    sys.stdout.write("\r")
+                sys.stdout.write("Total File Size: " + str(fileSize))
+                sys.stdout.flush()
+    print("\n")           
+    print("Sorted Semi-colons!")           
 In()
 
 def cleanUp():
-    outTemp = open("buffer.txt","a+") # Puts the buffer file into memory
-    for line in outTemp:
-        print(line)
-        print(line.replace("\r",""),file=outTemp,end="")
-        print(line.replace("\n",""),file=outTemp,end="")
-    outTemp.close() # Closes file
-    print("Clean Up Done!")
+    with open("buffer.log","a+") as outTemp: # Puts the buffer file into memory
+        for line in outTemp:
+            print(line)
+            print(line.replace("\r",""),file=outTemp,end="")
+            print(line.replace("\n",""),file=outTemp,end="")
+        print("Clean Up Done!")
 cleanUp()
 
 def Out():    
-    outTemp = open("buffer.txt","r+") # Puts the buffer file into memory
-    outFileUser = input("Output File: ")
-    try:
-        outFile = open(outFileUser,"w+") # Puts the output file into memory
-    except OSError as error:
-        print(error)
-        print("File could not be created. Try running with sudo")
-    for line in outTemp:
-        print(line[line.index(";")+1:],file=outFile,end="") # Removes everything before the ; 
-    outFile.close() # Closes file       		    # Also places into output
-    outTemp.close() # Closes file
-    print("Sorted Passwords!")
+    with open("buffer.log","r+") as outTemp: # Puts the buffer file into memory
+        outFileUser = input("Output File: ")
+        try:
+            outFile = open(outFileUser,"w+") # Puts the output file into memory
+        except OSError as error:
+            print(error)
+            print("File could not be created. Try running with sudo")
+        for line in outTemp:
+            if (";") in line:
+                print(line.split(';')[1],file=outFile,end="") # Removes everything before the ; 
+            else:
+                pass
+        print("Sorted Passwords!")
 Out()
 
 def removeTemp():
-    os.remove("buffer.txt")
+    os.remove("buffer.log")
     print("Removed Temp Files!")
 removeTemp()
 
