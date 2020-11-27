@@ -1,9 +1,5 @@
 # passHelper
-Can find any scripts that just get the passwords from data breaches? Then look no further!
-Formating:
-  Convert any ':' to ';' when required  
-  Works with ISO chars 
-
+Because there is no other scripts that work. 
 
 ## Why?
 Looking around the internet there wasn't any python scripts that would do what I wanted, which was to just get the passwords from leaked databases.
@@ -20,11 +16,11 @@ python3 convert.py
 
 ## TODO (Highest to Lowest priority)
 ```
-~~1. FIX combiner to work with multiple files~~
-~~2. ADD support for multiple files to be analyzed~~
-~~3. ADD support for files in a dir to be analyzed~~
-3. ADD support for the combiner to combine multiple files into one file (without breaking) | Maybe
-~~4. Optimize the script for larger files.~~ | Right now its based on CPU and Hard Disk speed
-5. ADD support for other file formates. csv, zip, tar | Maybe if others use it for data aggr
-6. Redo the script to be able to choose which to output. 1) Emails, 2) Passwords | Should be fine for now
+1. FIX combiner to work with multiple files ✔️
+2. ADD support for multiple files to be analyzed ✔️
+3. ADD support for files in a dir to be analyzed ✔️
+3. ADD support for the combiner to combine multiple files into one file (without breaking) | Maybe ⚠️
+4. Optimize the script for larger files. | Right now its based on CPU and Hard Disk speed ⚠️
+5. ADD support for other file formates. csv, zip, tar | Maybe if others use it for data aggr ⚠️ 
+6. Redo the script to be able to choose which to output. 1) Emails, 2) Passwords | Should be fine for now ⚠️
 ```
