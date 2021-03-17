@@ -1,5 +1,5 @@
 # Generate wordlists from database leaks!
-Why? Because there is no other scripts that work. 
+Because there is no other scripts that work. 
 
 ## Why?
 Looking around the internet there wasn't any python scripts that would do what I wanted, which was to just get the passwords from leaked databases.
