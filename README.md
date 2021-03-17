@@ -1,7 +1,7 @@
 # Generate wordlists from database leaks!
 
 <p align="center">
-  Because there are no other scripts that work. 
+  <div>Because there are no other scripts that work </div> 
   <img width="536" height="266" src="https://i.imgur.com/NTf2PJ4.png">
 </p>
 
