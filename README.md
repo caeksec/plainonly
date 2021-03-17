@@ -1,5 +1,6 @@
 # Generate wordlists from database leaks!
 Because there is no other scripts that work. 
+![alt text](https://i.imgur.com/NTf2PJ4.png)
 
 ## Why?
 Looking around the internet there wasn't any python scripts that would do what I wanted, which was to just get the passwords from leaked databases.
