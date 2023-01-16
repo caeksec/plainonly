@@ -42,13 +42,3 @@ https://github.com/Cynosureprime/rling
 rling INFILE.txt OUTFILE.txt
 ```
 
-## TODO (Highest to Lowest priority)
-```
-1. FIX combiner to work with multiple files ✔️
-2. ADD support for multiple files to be analyzed ✔️
-3. ADD support for files in a dir to be analyzed ✔️
-3. ADD support for the combiner to combine multiple files into one file (without breaking) ✔️
-4. Optimize the script for larger files. ✔️
-5. ADD support for other file formates. csv, zip, tar | Maybe ⚠️ 
-6. Redo the script to be able to choose which to output. 1) Emails, 2) Passwords| Maybe ⚠️
-```
